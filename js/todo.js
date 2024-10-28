@@ -30,6 +30,12 @@ function validateTodoInput(content, type, endDate) {
     if (!content.trim()) {
         return 'Todo content cannot be empty';
     }
+    if (content.length > 2000) {
+        return 'Todo content cannot exceed 2000 characters';
+    }
+    if (type && type.length > 50) {
+        return 'Todo type cannot exceed 50 characters';
+    }
     if (endDate && new Date(endDate) < new Date()) {
         return 'End date cannot be in the past';
     }
@@ -145,8 +151,8 @@ async function handleEditTodo(id) {
             // Create edit form
             const editForm = document.createElement('form');
             editForm.innerHTML = `
-                <input type="text" id="edit-content" value="${todo.content}" required>
-                <input type="text" id="edit-type" value="${todo.type}">
+                <input type="text" id="edit-content" value="${todo.content}" maxlength="2000" required>
+                <input type="text" id="edit-type" value="${todo.type}" maxlength="50">
                 <input type="datetime-local" id="edit-end-date" value="${todo.endDate ? todo.endDate.slice(0, 16) : ''}">
                 <button type="submit">Save</button>
                 <button type="button" id="cancel-edit">Cancel</button>
