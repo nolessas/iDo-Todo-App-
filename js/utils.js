@@ -65,11 +65,11 @@ function validateForm(formId) {
 
     inputs.forEach(input => {
         if (input.type === 'email' && !isValidEmail(input.value)) {
-            displayError('Neteisingas el. pašto formatas', `${formId}-error`);
+            displayError('Invalid email format', `${formId}-error`);
             isValid = false;
         }
         if (input.type === 'password' && !isValidPassword(input.value)) {
-            displayError('Slaptažodis turi būti bent 6 simbolių ilgio', `${formId}-error`);
+            displayError('Password must be at least 6 characters long', `${formId}-error`);
             isValid = false;
         }
     });
