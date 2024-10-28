@@ -166,6 +166,7 @@ button:hover {
     min-width: 200px;
     word-break: break-word;
     margin-right: 1rem;
+    
 }
 
 .todo-type, .todo-date {
@@ -240,5 +241,5 @@ footer {
     font-weight: bold;
     z-index: 1001;
     display: none;
-    margin-top: 60px; /* Adjusted to display above the top bar container */
+    margin-top: 60px;
 }
