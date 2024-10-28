@@ -33,7 +33,10 @@ function validateTodoInput(content, type, endDate) {
     if (content.length > 2000) {
         return 'Todo content cannot exceed 2000 characters';
     }
-    if (type && type.length > 50) {
+    if (!type || !type.trim()) {
+        return 'Todo type is required';
+    }
+    if (type.length > 50) {
         return 'Todo type cannot exceed 50 characters';
     }
     if (endDate && new Date(endDate) < new Date()) {
