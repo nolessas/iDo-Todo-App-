@@ -1,10 +1,10 @@
-// API endpoint - consider moving this to a config file for easier management
+// API endpoint
 const API_URL = 'https://localhost:7171/api';
 
-// Global user state - consider using a state management solution for larger apps
+// Global user state
 let currentUser = null;
 
-// DOM Elements - grouped for easier management
+// DOM Elements
 const authSection = document.getElementById('auth-section');
 const todoSection = document.getElementById('todo-section');
 const loginForm = document.getElementById('login-form');
@@ -15,7 +15,7 @@ const logoutButton = document.getElementById('logout-button');
 const sortSelect = document.getElementById('sort-select');
 const filterInput = document.getElementById('filter-input');
 
-// Event Listeners - centralized for easier debugging and management
+// Event Listeners
 loginForm.addEventListener('submit', handleLogin);
 registerForm.addEventListener('submit', handleRegister);
 addTodoForm.addEventListener('submit', handleAddTodo);
