@@ -74,7 +74,14 @@ async function handleRegister(e) {
 
     const username = document.getElementById('register-username').value.trim();
     const password = document.getElementById('register-password').value;
+    const confirmPassword = document.getElementById('register-confirm-password').value;
     const email = document.getElementById('register-email').value.trim();
+
+    // Check if passwords match
+    if (password !== confirmPassword) {
+        displayError('Passwords do not match');
+        return;
+    }
 
     const usernameError = validateInput(username, 'username');
     const passwordError = validateInput(password, 'password');
@@ -98,6 +105,9 @@ async function handleRegister(e) {
         if (response.ok) {
             alert('Registration successful. Please login.');
             registerForm.reset();
+            // Switch to login view after successful registration
+            document.getElementById('register-container').style.display = 'none';
+            document.getElementById('login-container').style.display = 'block';
         } else {
             await handleApiError(response);
         }
